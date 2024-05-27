@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confirmation</title>
+</head>
+<body>
+
+<h2>Download Application Form Data</h2>
+<p>Do you want to download the application form data as a text file?</p>
+<button onclick="generateTextFile()">Yes</button>
+<button onclick="window.location.href='login.html'">Go Back to LoginPage</button>
+
+<script>
+    function generateTextFile() {
+        // Retrieve form data from localStorage
+        var formData = JSON.parse(localStorage.getItem("formData"));
+
+        if (formData) {
+            var fileName = formData.name.replace(/\s+/g, '_') + "_form_submitted_" + Date.now() + ".txt";
+            var textContent = "Application Form Data:\n\n";
+            for (var key in formData) {
+                textContent += key + ": " + formData[key] + "\n";
+            }
+
+            // Create a Blob object with the file content
+            var blob = new Blob([textContent], { type: "text/plain" });
+            
+            // Create a temporary anchor element
+            var a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            
+            // Set the file name
+            a.download = fileName;
+
+            // Trigger a click event to simulate download
+            a.click();
+
+            // Clear form data from localStorage
+            localStorage.removeItem("formData");
+
+            // Redirect to login page
+            setTimeout(function() {
+                window.location.href = "login.html";
+            }, 1000); // Redirect after 1 second
+
+            // Alert the user
+            alert("Text file is downloaded.");
+        } else {
+            alert("Form data not found.");
+        }
+    }
+</script>
+
+
+</body>
+</html>

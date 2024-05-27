@@ -1,0 +1,75 @@
+To set up your project for automation practice and push it to a GitHub repository, follow these steps. I'll guide you through creating a new GitHub repository, adding your files, and pushing them to the repository. Here's a step-by-step guide:
+
+### Step 1: Create a New Repository on GitHub
+
+1. **Log in to GitHub**: Go to [GitHub](https://github.com/) and log in with your account.
+2. **Create a New Repository**:
+   - Click on the "+" icon at the top right corner and select "New repository".
+   - Enter a repository name (e.g., `automation-practice`).
+   - Optionally, add a description.
+   - Choose to make the repository public or private.
+   - Do not initialize the repository with a README file.
+   - Click the "Create repository" button.
+
+created - https://github.com/maheshGit9637/loginForm.git
+
+### Step 2: Set Up Git on Your Local Machine
+
+1. **Open Command Prompt**: Open Command Prompt (cmd) on your local machine.
+2. **Navigate to Your Project Directory**: Change the directory to where your HTML files are located. For example:
+   ```sh
+   cd "C:\Users\mahesh shelke\Desktop\admissionForm"
+   ```
+
+3. **Initialize Git**: Initialize a new Git repository in your project directory:
+   ```sh
+   git init
+   ```
+
+### Step 3: Add Files to the Repository
+
+1. **Add Your Files**: Add your HTML files to the staging area:
+   ```sh
+   git add admission.html confirmation.html login.html
+   ```
+
+2. **Commit the Files**: Commit your files with a descriptive commit message:
+   ```sh
+   git commit -m "Initial commit with admission, confirmation, and login HTML files"
+   ```
+
+### Step 4: Connect to GitHub Repository and Push
+
+1. **Add Remote Repository**: Connect your local repository to the GitHub repository you created. Replace `YOUR_GITHUB_USERNAME` with your GitHub username and `YOUR_REPOSITORY_NAME` with the name of your repository:
+   ```sh
+   git remote add origin https://github.com/YOUR_GITHUB_USERNAME/automation-practice.git
+   ```
+
+2. **Push Files to GitHub**: Push your committed files to the remote repository:
+   ```sh
+   git push -u origin master
+   ```
+
+### Step 5: Verify the Repository
+
+1. **Check GitHub**: Go to your GitHub repository URL (e.g., `https://github.com/YOUR_GITHUB_USERNAME/automation-practice`) and verify that your files have been uploaded.
+
+### Example Commands
+
+Here are the complete commands you will run in Command Prompt:
+
+```sh
+cd "C:\Users\mahesh shelke\Desktop\admissionForm"
+git init
+git add admission.html confirmation.html login.html
+git commit -m "Initial commit with admission, confirmation, and login HTML files"
+git remote add origin https://github.com/YOUR_GITHUB_USERNAME/automation-practice.git
+git push -u origin master
+```
+
+### Final Notes
+
+- Ensure you have Git installed on your local machine. You can download and install it from [git-scm.com](https://git-scm.com/).
+- If you face any authentication issues, ensure you have configured your GitHub credentials correctly. You can use personal access tokens for authentication if you're using GitHub's two-factor authentication.
+
+Now you can test your automation scripts locally with the files in your GitHub repository. You can clone the repository to other machines or share it with collaborators if needed.
