@@ -43,7 +43,7 @@
         box-sizing: border-box;
     }
 
-    input[type="submit"] {
+    input[type="submit"], button {
         width: 100%;
         padding: 10px;
         border: none;
@@ -53,28 +53,16 @@
         cursor: pointer;
     }
 
-    input[type="submit"]:hover {
+    input[type="submit"]:hover, button:hover {
         background-color: #45a049;
     }
 
-    button {
-        width: 100%;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        background-color: #f44336;
-        color: white;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background-color: #45a049;
-    }
-
-    @media (max-width: 768px) {
-        .container {
-            margin: 20px;
-        }
+    .hidden-label {
+        display: none;
+        color: #ff5722;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 20px;
     }
 </style>
 </head>
@@ -82,6 +70,7 @@
 
 <div class="container">
     <h2>12th Class Admission Form</h2>
+
     <form id="admissionForm">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required><br>
@@ -109,43 +98,26 @@
         <input type="text" id="marks10" name="marks10" required><br>
         <label for="marks12">12th Grade Marks (%):</label>
         <input type="text" id="marks12" name="marks12" required><br>
-        
     </form>
 
     <input type="submit" value="Submit" onclick="submitForm()">
-    
     <br><br>
     <button onclick="window.location.href='login.html'">Close Session</button>
+
+    <!-- Hidden Element to Show After 15 Seconds -->
+    <div id="hiddenMessage" class="hidden-label">Hii, how are you?</div>
 </div>
 
 <script>
     function submitForm() {
-        // Retrieve form data
-        var formData = {
-            name: document.getElementById('name').value,
-            age: document.getElementById('age').value,
-            gender: document.getElementById('gender').value,
-            dob: document.getElementById('dob').value,
-            address: document.getElementById('address').value,
-            email: document.getElementById('email').value,
-            contact: document.getElementById('contact').value,
-            previousSchool: document.getElementById('previousSchool').value,
-            board: document.getElementById('board').value,
-            marks10: document.getElementById('marks10').value,
-            marks12: document.getElementById('marks12').value
-        };
-
-        // Validate form data
-        if (formData.name && formData.age && formData.gender && formData.dob && formData.address && formData.email && formData.contact && formData.previousSchool && formData.board && formData.marks10 && formData.marks12) {
-            // Store form data in local storage
-            localStorage.setItem('formData', JSON.stringify(formData));
-
-            // Redirect to confirmation page
-            window.location.href = 'confirmation.html';
-        } else {
-            alert('Please fill in all required fields.');
-        }
+        alert('Form submitted successfully!');
     }
+
+    // Show the label after 15 seconds
+    setTimeout(function() {
+        const hiddenMessage = document.getElementById('hiddenMessage');
+        hiddenMessage.style.display = 'block';
+    }, 15000); // 15 seconds delay
 </script>
 
 </body>
